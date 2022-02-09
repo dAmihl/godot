@@ -236,7 +236,7 @@ public:
 	void delete_char();
 	void delete_text(int p_from_column, int p_to_column);
 
-	void set_text(String p_text);
+	void set_text(String p_text, const bool reset_caret = true);
 	String get_text() const;
 
 	void set_text_direction(TextDirection p_text_direction);

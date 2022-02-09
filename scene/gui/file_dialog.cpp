@@ -166,7 +166,7 @@ Vector<String> FileDialog::get_selected_files() const {
 };
 
 void FileDialog::update_dir() {
-	dir->set_text(dir_access->get_current_dir(false));
+	dir->set_text(dir_access->get_current_dir(false), false);
 
 	if (drives->is_visible()) {
 		if (dir_access->get_current_dir().is_network_share_path()) {

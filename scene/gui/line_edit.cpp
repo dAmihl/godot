@@ -1336,14 +1336,21 @@ void LineEdit::delete_text(int p_from_column, int p_to_column) {
 	}
 }
 
-void LineEdit::set_text(String p_text) {
+void LineEdit::set_text(String p_text, const bool reset_caret) {
 	clear_internal();
 	insert_text_at_caret(p_text);
 	_create_undo_state();
 
 	update();
-	caret_column = 0;
-	scroll_offset = 0;
+
+	if (reset_caret) {
+		caret_column = 0;
+		scroll_offset = 0;
+	}
+	else
+	{
+		caret_column = p_text.length();
+	}
 }
 
 void LineEdit::set_text_direction(Control::TextDirection p_text_direction) {
